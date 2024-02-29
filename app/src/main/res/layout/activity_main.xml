@@ -1,178 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
-    android:orientation="vertical"
+    android:background="@drawable/texture"
     tools:context=".MainActivity">
 
+    <!-- Текстовое поле для отображения текущего счета -->
     <TextView
-        android:id="@+id/math_operation"
-        android:layout_width="match_parent"
-        android:layout_height="150sp"
-        android:textColor="@color/white"
-        android:gravity="end"
-        android:ellipsize="start"
-        android:textSize="40sp"
-         />
+        android:id="@+id/score_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Score: 0"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"/>
 
+    <!-- Текстовое поле для отображения количества очков здоровья -->
     <TextView
-        android:id="@+id/result"
+        android:id="@+id/hp_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HP: 5"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Верхняя черная полоса -->
+    <View
+        android:id="@+id/top_black_bar"
         android:layout_width="match_parent"
-        android:layout_height="100sp"
-        android:textColor="@color/white"
-        android:gravity="end"
-        android:ellipsize="end"
-        android:textSize="30sp"
-        android:singleLine="true"
-        />
+        android:layout_height="4dp"
+        android:background="@android:color/black"
+        android:layout_below="@id/score_text_view"/>
 
-    <LinearLayout
+    <!-- Игровое поле -->
+    <com.example.tanks.CustomFrameLayout
+        android:id="@+id/game_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:layout_above="@id/bottom_black_bar"
+        android:layout_below="@id/top_black_bar"
+        android:background="@android:color/transparent">
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="0dp">
+        <!-- Здесь будет отображаться игровое поле -->
 
-            <Button
-                android:id="@+id/clear"
-                style="@style/ActionButton"
-                android:text="AC" />
+    </com.example.tanks.CustomFrameLayout>
 
-            <Button
-                style="@style/ActionButton"
-                android:text="("
-                android:id="@+id/leftBrk"
-                />
-            <Button
-                style="@style/ActionButton"
-                android:text=")"
-                android:id="@+id/rightBrk"
-                />
-            <Button
-                style="@style/ActionButton"
-                android:text="÷"
-                android:id="@+id/divide"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="0dp">
-            <Button
-                style="@style/NumberButton"
+    <!-- Нижняя черная полоса -->
+    <View
+        android:id="@+id/bottom_black_bar"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@android:color/black"
+        android:layout_alignParentBottom="true"/>
 
-                android:text="7"
-                android:id="@+id/seven"
-                />
-
-            <Button
-                android:id="@+id/eight"
-                style="@style/NumberButton"
-                android:text="8"
-                />
-
-            <Button
-                style="@style/NumberButton"
-                android:text="9"
-                android:id="@+id/nine"
-                />
-            <Button
-                style="@style/ActionButton"
-                android:text="x"
-                android:id="@+id/multiply"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="0dp">
-            <Button
-                style="@style/NumberButton"
-                android:text="4"
-                android:id="@+id/four"
-                />
-            <Button
-                style="@style/NumberButton"
-                android:text="5"
-                android:id="@+id/five"
-                />
-            <Button
-                style="@style/NumberButton"
-                android:text="6"
-                android:id="@+id/six"
-                />
-            <Button
-                style="@style/ActionButton"
-                android:text="-"
-                android:id="@+id/minus"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="0dp">
-            <Button
-                style="@style/NumberButton"
-                android:text="1"
-                android:id="@+id/one"
-                />
-            <Button
-                style="@style/NumberButton"
-                android:text="2"
-                android:id="@+id/two"
-                />
-            <Button
-                style="@style/NumberButton"
-                android:text="3"
-                android:id="@+id/three"
-                />
-            <Button
-                style="@style/ActionButton"
-                android:text="+"
-                android:id="@+id/plus"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="0dp">
-            <Button
-                style="@style/ActionButton"
-                android:text="⌫"
-                android:id="@+id/backscape"
-                />
-            <Button
-                style="@style/NumberButton"
-                android:text="0"
-                android:id="@+id/zero"
-                />
-            <Button
-                style="@style/ActionButton"
-                android:text="."
-                android:id="@+id/comma"
-                />
-            <Button
-                style="@style/ActionButton"
-                android:text="="
-                android:id="@+id/res"
-                />
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-
-
-</LinearLayout>
+</RelativeLayout>

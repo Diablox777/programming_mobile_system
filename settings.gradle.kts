@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Calculator-Tetyakoff"
+rootProject.name = "Tanks"
 include(":app")
  

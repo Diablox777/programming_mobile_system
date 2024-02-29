@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Calculator-Tetyakoff</string>
+    <string name="app_name">Catch The Bug 2</string>
+    <string name="score_label">Score: %1$d</string>
+    <string name="hp_label">HP: %1$d</string>
 </resources>
